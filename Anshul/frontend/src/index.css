@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/gh/antijingoist/opendyslexic@master/compiled/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/gh/antijingoist/opendyslexic@master/compiled/OpenDyslexic-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-textMain min-h-screen font-sans overflow-x-hidden;
+  }
+}
+
+/* Accessibility Modes */
+.high-contrast {
+  filter: contrast(125%) saturate(120%);
+}
+
+.large-font {
+  font-size: 110%;
+}
+
+.dyslexia-font {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}
+
+/* Overlays for Irlen Syndrome */
+.overlay-yellow { background-color: rgba(255, 255, 0, 0.15) !important; }
+.overlay-blue { background-color: rgba(0, 0, 255, 0.15) !important; }
+.overlay-green { background-color: rgba(0, 255, 0, 0.15) !important; }
+.overlay-pink { background-color: rgba(255, 192, 203, 0.2) !important; }
+
+.color-overlay-container {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  mix-blend-mode: multiply;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_0_rgba(16,185,129,0.05)] rounded-2xl;
+}
+
+.glass-pill {
+  @apply bg-white/80 backdrop-blur-md border border-white/60 shadow-sm rounded-full;
+}
+
+/* Custom scrollbar to match sleek theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
+}
